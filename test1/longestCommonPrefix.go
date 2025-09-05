@@ -17,9 +17,19 @@ func longestCommonPrefix(strs []string) string {
 
 	str1 := strs[0]
 
-	for s := range strs {
+	for {
+		var exist bool
+		for _, v := range strs {
+			exist = strings.HasPrefix(v, str1)
+			if !exist {
+				str1 = str1[0 : len(str1)-1]
+			}
+		}
+		if exist == true || str1 == "" {
+			break
+		}
 
-		strings.HasPrefix(str, prefix1)
 	}
+	return str1
 
 }
